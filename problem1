@@ -1,0 +1,30 @@
+import java.util.*;
+
+
+public class Main {
+    
+    public static int GetW(String x){
+        int S=0;
+        int N = x.length();
+        for( int i=0; i<N; i++){
+            S+=x.codePointAt(i)-64;
+            }
+        return S;
+        }
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        ArrayList<String> a = new ArrayList<>();
+        for (int i=0; i<N; i++){
+            a.add(in.next());
+            }
+        Collections.sort(a);
+        int Q = in.nextInt();
+        for(int i=0; i<Q; i++){
+            String line = in.next();
+            System.out.println((a.indexOf(line)+1)*GetW(line));
+            }
+    
+    }
+}
